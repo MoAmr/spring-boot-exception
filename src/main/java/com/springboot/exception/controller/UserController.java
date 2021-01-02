@@ -15,6 +15,6 @@ public class UserController {
     @RequestMapping(path = "/add")
     public String add() {
         int num = 10 / 0;
-        return "add";
+        return "error";
     }
 }
