@@ -20,11 +20,26 @@ public class UserController {
         return "error.bak";
     }
 
+    @RequestMapping(path = "/update")
+    public String update() {
+        String name = null;
+        name = name.toLowerCase(); // this should cause null pointer exception
+        return name;
+    }
+
     @ExceptionHandler(value = {ArithmeticException.class})
     public ModelAndView handlerArithmeticException(Exception e) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("exception", e.toString());
         modelAndView.setViewName("mathError");
+        return modelAndView;
+    }
+
+    @ExceptionHandler(value = {NullPointerException.class})
+    public ModelAndView handlerNullPointerException(Exception e) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("exception", e.toString());
+        modelAndView.setViewName("nullPointerError");
         return modelAndView;
     }
 }
