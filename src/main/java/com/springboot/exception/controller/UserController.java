@@ -17,29 +17,30 @@ public class UserController {
     @RequestMapping(path = "/add")
     public String add() {
         int num = 10 / 0;
-        return "error.bak";
+        return "add";
     }
 
     @RequestMapping(path = "/update")
     public String update() {
         String name = null;
         name = name.toLowerCase(); // this should cause null pointer exception
-        return name;
+        return "update";
     }
 
-    @ExceptionHandler(value = {ArithmeticException.class})
-    public ModelAndView handlerArithmeticException(Exception e) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("exception", e.toString());
-        modelAndView.setViewName("mathError");
-        return modelAndView;
-    }
+//    @ExceptionHandler(value = {ArithmeticException.class})
+//    public ModelAndView handlerArithmeticException(Exception e) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.addObject("exception", e.toString());
+//        modelAndView.setViewName("mathError");
+//        return modelAndView;
+//    }
+//
+//    @ExceptionHandler(value = {NullPointerException.class})
+//    public ModelAndView handlerNullPointerException(Exception e) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.addObject("exception", e.toString());
+//        modelAndView.setViewName("nullPointerError");
+//        return modelAndView;
+//    }
 
-    @ExceptionHandler(value = {NullPointerException.class})
-    public ModelAndView handlerNullPointerException(Exception e) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("exception", e.toString());
-        modelAndView.setViewName("nullPointerError");
-        return modelAndView;
-    }
 }
